@@ -1,0 +1,60 @@
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#0f172a" />
+    <title>MatchPick — 테니스 매칭 PWA (MVP)</title>
+    <style>
+      *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#f8fafc;color:#0f172a}
+      .container{max-width:780px;margin:0 auto;padding:12px 12px 96px}
+      .card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+      .btn{border:0;border-radius:12px;padding:10px 14px;cursor:pointer}
+      .btn.primary{background:#0f172a;color:#fff}
+      .btn.ghost{background:#fff;border:1px solid #e2e8f0}
+      .pill{display:inline-block;border:1px solid #cbd5e1;border-radius:999px;padding:2px 8px;font-size:12px;color:#64748b}
+      .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+      nav.bottom{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e2e8f0}
+      nav.bottom .grid{max-width:780px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+      nav.bottom button{padding:12px;border:0;background:transparent;color:#64748b}
+      nav.bottom button.active{color:#0f172a;font-weight:600}
+      .ad{position:fixed;left:0;right:0;bottom:56px}
+      .ad .wrap{max-width:780px;margin:0 auto;padding:0 12px}
+      .ad .box{background:#f1f5f9;border:1px solid #cbd5e1;border-radius:14px;padding:8px;text-align:center;font-size:12px;color:#475569}
+      .badge{padding:2px 8px;border:1px solid #cbd5e1;border-radius:999px;font-size:12px}
+      .hint{font-size:12px;color:#64748b}
+      .list{display:grid;gap:8px}
+      .input, select, input[type="date"], input[type="time"], input[type="number"]{width:100%;padding:10px;border-radius:10px;border:1px solid #cbd5e1}
+      .chat{max-height:260px;overflow:auto;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:10px}
+    </style>
+  </head>
+  <body>
+    <header class="card" style="position:sticky;top:0;z-index:10;border-radius:0;border-left:0;border-right:0">
+      <div class="row" style="justify-content:space-between">
+        <div style="font-weight:700;font-size:20px">🎾 MatchPick (PWA)</div>
+        <div class="hint">스매시 대체용 초간단 MVP</div>
+      </div>
+    </header>
+    <main class="container">
+      <div id="root"></div>
+    </main>
+    <nav class="bottom">
+      <div class="grid">
+        <button id="tab-home" class="active">홈</button>
+        <button id="tab-new">매치 만들기</button>
+        <button id="tab-mine">내 매치</button>
+        <button id="tab-profile">마이</button>
+      </div>
+    </nav>
+    <div class="ad" id="ad-area" style="display:none">
+      <div class="wrap"><div class="box">광고 배너 자리(데모) · 출시 시 AdMob로 교체</div></div>
+    </div>
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script> if ('serviceWorker' in navigator) { window.addEventListener('load', () => navigator.serviceWorker.register('/service-worker.js')); } </script>
+    <script src="/app.js"></script>
+  </body>
+</html>
